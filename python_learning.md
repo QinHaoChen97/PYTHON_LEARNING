@@ -106,25 +106,40 @@ PyTypeObject PyInt_Type = {
 
 ![image-20230713193114781](image-20230713193114781.png)
 
+## PyDictObject
 
+`PyDictEntry`
 
+![image-20230713200024945](image-20230713200024945.png)
 
+在`PyDictEntry`中`me_hash`域存储的是`me_key`的散列值，利用一个域来记录这个散列值可以避免每次查询的时候都要重新计算一遍散列值。
 
+![image-20230713200549882](image-20230713200549882.png)
 
+![状态转换示意图](image-20230713200738117.png)
 
+`Dict`的初始内存大小为8
 
+```python
+my_dict = dict(capacity=initial_capacity)
+```
 
+![image-20230713203408682](image-20230713203408682.png)
 
+![image-20230714155734614](image-20230714155734614.png)
 
+![image-20230714161438418](image-20230714161438418.png)
 
+==**扩容判断**==
 
+![image-20230714162259705](image-20230714162259705.png)
 
+==对象缓冲池==
 
+使用了和List一样的机制，只有当PyDictObject对象销毁后对象缓冲池才会存入缓存。
 
+![image-20230714165925588](image-20230714165925588.png)
 
+## small Python
 
-
-
-
-
-
+理解Python虚拟机利用`PyDictObject`对象来维护变量名到变量值的映射。
