@@ -25,6 +25,8 @@
 
 ![Alt text](image-7.png)
 
+`PyTypeObject`里面定义了各种类型的方法，比如说`int`有`add`、`sub`等，还有一些其他信息值。
+
 ### Python对象的多态性
 通过传递*PyObject来实现
 ![Alt text](image-8.png)
@@ -143,3 +145,11 @@ my_dict = dict(capacity=initial_capacity)
 ## small Python
 
 理解Python虚拟机利用`PyDictObject`对象来维护变量名到变量值的映射。
+
+
+
+## Python虚拟机
+
+![image-20230714181757053](image-20230714181757053.png)
+
+![image-20230714181946487](image-20230714181946487.png)
